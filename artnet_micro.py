@@ -1,5 +1,4 @@
 from socket import *
-#import numpy as np
 import machine, neopixel, time
 
 np = neopixel.NeoPixel(machine.Pin(10), 170)
