@@ -1,13 +1,16 @@
 from socket import *
 import machine, neopixel
 
-np = neopixel.NeoPixel(machine.Pin(10), 170)
+host = '127.0.0.1' # 送信元IPアドレス
+
+total = 240 #ledの数
+led_num = 3 #何こづつ制御するか
+
+np = neopixel.NeoPixel(machine.Pin(10), total)
+
 
 class udprecv():
     def __init__(self):
-        # ホスト名を取得、表示
-        # host = gethostbyname(gethostname())
-        host = '127.0.0.1'
         # ipアドレスを取得、表示
         SrcIP  = gethostbyname(gethostbyname(host))
         SrcPort = 6454                                 # 受信元ポート番号
@@ -22,8 +25,9 @@ class udprecv():
         del data[0:18]
         print(data)
         
-        for i in range(170):
-            np[i] = (data[i*3], data[i*3+1], data[i*3+2])
+        for i in range(total/led_num):
+            for j in range(led_num):
+                np[i*led_num+j] = (data[i*led_num+j*3], data[i*led_num+j*3+1], data[i*led_num+j*3+2])
         np.write()
 
 udp = udprecv()
