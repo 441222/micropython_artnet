@@ -24,7 +24,7 @@ class udprecv():
         
         for i in range(170):
             np[i] = (data[i*3], data[i*3+1], data[i*3+2])
-            np.write()
+        np.write()
 
 udp = udprecv()
 while True:
