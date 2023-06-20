@@ -22,14 +22,17 @@ class udprecv():
     def recv(self):
         packe,addr=self.udpServSock.recvfrom(self.BUFSIZE) #受信
         data = [int(b) for b in packe] #byte型をint型に変換
-        
-        if data[14] == universe:       #universe番号が一致したらneopixelに送信
-            del data[0:18]
-            print(data)
-            for i in range(total/led_num): 
-                for j in range(led_num):
-                    np[i*led_num+j] = (data[i*led_num+j*3], data[i*led_num+j*3+1], data[i*led_num+j*3+2]) 
-            np.write()
+
+        try:
+            if data[14] == universe:       #universe番号が一致したらneopixelに送信
+                del data[0:18]
+                print(data)
+                for i in range(total/led_num): 
+                    for j in range(led_num):
+                        np[i*led_num+j] = (data[i*led_num+j*3], data[i*led_num+j*3+1], data[i*led_num+j*3+2]) 
+                np.write()
+        except IndexError:
+            pass
 
 udp = udprecv()
 while True:
