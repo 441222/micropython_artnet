@@ -1,5 +1,5 @@
 from socket import *
-import machine, neopixel, time
+import machine, neopixel
 
 np = neopixel.NeoPixel(machine.Pin(10), 170)
 
