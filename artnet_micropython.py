@@ -12,7 +12,7 @@ np = neopixel.NeoPixel(machine.Pin(10), total) #neopixelの設定
 
 class udprecv():
     def __init__(self):
-        SrcIP  = gethostbyname(gethostbyname(host))    # 送信元IPアドレス
+        SrcIP  = gethostbyname(host)    # 送信元IPアドレス
         SrcPort = 6454                                 # 受信元ポート番号
         self.SrcAddr = (SrcIP, SrcPort)                # アドレスをtupleに格納
         self.BUFSIZE = 1024                            # バッファサイズ指定
