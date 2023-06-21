@@ -1,4 +1,4 @@
-import usocket as socket
+from usocket import *
 import machine, neopixel
 
 host = '127.0.0.1' # 送信元IPアドレス
