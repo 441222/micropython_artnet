@@ -9,7 +9,7 @@ class udprecv():
         
         
         # ipアドレスを取得、表示
-        SrcIP  = gethostbyname(gethostbyname(host))
+        SrcIP  = gethostbyname(host)
         SrcPort = 6454                                 # 受信元ポート番号
         self.SrcAddr = (SrcIP, SrcPort)                # アドレスをtupleに格納
         self.BUFSIZE = 1024                            # バッファサイズ指定
