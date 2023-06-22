@@ -2,6 +2,8 @@ import usocket as socket
 import machine, neopixel
 import network
 
+SSID = 'SSID'
+PASSWORD = 'パスコード'
 host = '192.168.255.255' # 送信元IPアドレス
 universe = 0 # universe番号
 
@@ -14,7 +16,7 @@ np = neopixel.NeoPixel(machine.Pin(10), led_length) #neopixelの設定
 def wifi_startup():
     sta_if = network.WLAN(network.STA_IF)
     if sta_if.active(True):
-        sta_if.connect('SSID','パスコード')
+        sta_if.connect(SSID, PASSWORD)
         while not sta_if.isconnected():
             pass
         sta_if.ifconfig(('192.168.1.11', '255.255.255.0', '192.168.1.1', '192.168.1.1'))
