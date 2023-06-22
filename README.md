@@ -1,2 +1,2 @@
 # micropython_artnet
-micropythonでartnetを受信してneopixelを制御するサンプル
+ESP32のmicropythonでartnet経由でneopixelを制御したい
