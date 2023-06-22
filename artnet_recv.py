@@ -1,12 +1,10 @@
 from socket import *
-#import numpy as np
 
 host = '127.0.0.1' # 送信元IPアドレス
 universe = 0 # universe番号
 
 class udprecv():
-    def __init__(self):
-        
+    def __init__(self):   
         
         # ipアドレスを取得、表示
         SrcIP  = gethostbyname(host)
@@ -19,12 +17,14 @@ class udprecv():
 
     def recv(self):
         packe,addr=self.udpServSock.recvfrom(self.BUFSIZE)
+        #pakeのbytes数を出力
+        print(packe)
         data = [int(b) for b in packe]
         #del data[0:18]
         try:
             if data[14] == universe:
                 del data[0:18]
-                print(data)
+                #print(data)
         except IndexError:
             pass
         

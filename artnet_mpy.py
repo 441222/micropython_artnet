@@ -4,7 +4,7 @@ import network
 
 SSID = 'SSID'
 PASSWORD = 'パスコード'
-host = '192.168.255.255' # 送信元IPアドレス
+host = '192.168.1.27' # 送信元IPアドレス
 universe = 0 # universe番号
 
 led_length = 240 #ledの数
@@ -32,6 +32,7 @@ class udprecv():
 
     def recv(self):
         packe,addr=self.udpServSock.recvfrom(self.BUFSIZE) #受信
+
         data = [int(b) for b in packe] #byte型をint型に変換
 
         try:
