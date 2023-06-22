@@ -36,9 +36,9 @@ class udprecv():
             if data[14] == universe:       #universe番号が一致したらneopixelに送信
                 del data[0:18]
                 print(data)
-                for i in range(led_length/led_num): 
-                    for j in range(led_num):
-                        np[i] = (data[i*led_num+j*3], data[i*led_num+j*3+1], data[i*led_num+j*3+2]) 
+            for i in range (led_length//led_num):
+                for j in range(led_num):
+                    np[i+j] = (data[i*3], data[i*3+1], data[i*3+2])
                 np.write()
         except IndexError:
             pass
