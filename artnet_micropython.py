@@ -2,7 +2,7 @@ import usocket as socket
 import machine, neopixel
 import network
 
-host = '127.0.0.1' # 送信元IPアドレス
+host = '192.168.255.255' # 送信元IPアドレス
 universe = 0 # universe番号
 
 led_length = 240 #ledの数
